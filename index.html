@@ -72,7 +72,7 @@
 
 <div class="stats">
   <span>📍 堅尼地城 · 西營盤 · 銅鑼灣 · 中環 · 旺角</span>
-  <span>收錄 <strong id="count">93</strong> 間</span>
+  <span>收錄 <strong id="count">53</strong> 間</span>
 </div>
 
 <div class="main">
@@ -88,67 +88,17 @@
 <script>
 // Google Places API 真實數據 - 香港多區平價餐廳
 const RESTAURANTS = [
-  // 茶餐廳
+  // ===== 堅尼地城（Google Places API 驗證真實存在）=====
   { id:1, name:'Yee Kee Restaurant 怡記餐廳', type:'茶餐廳', address:'士美菲路12S-12T號', lat:22.2804602, lng:114.1293146, price:40, rating:4.2 },
   { id:2, name:'Ho Ho Restaurant 好好餐廳', type:'茶餐廳', address:'卑路乍街136-142號', lat:22.2821097, lng:114.1269981, price:42, rating:3.9 },
   { id:3, name:'Sing Kee Restaurant 勝記餐廳', type:'茶餐廳', address:'士美菲路12號', lat:22.2816977, lng:114.1285481, price:38, rating:3.7 },
   { id:4, name:'Sun Hing Restaurant 新興食家', type:'茶餐廳', address:'士美菲路8號', lat:22.2829508, lng:114.1282447, price:45, rating:4.3 },
-  { id:5, name:'祥香茶餐廳', type:'茶餐廳', address:'卑路乍街107號', lat:22.2829353, lng:114.1281814, price:40, rating:4.0 },
-  { id:13, name:'Yi Ka 怡珈', type:'茶餐廳', address:'卑路乍街51號', lat:22.2831285, lng:114.1298047, price:38, rating:3.7 },
-  { id:21, name:'Wah Kee Restaurant 華記餐廳', type:'茶餐廳', address:'卑路乍街62號', lat:22.2835, lng:114.1290, price:40, rating:3.8 },
-  { id:22, name:'Kam Kee Cafe 金記冰室', type:'茶餐廳', address:'士美菲路20號', lat:22.2812, lng:114.1298, price:42, rating:3.9 },
-  { id:23, name:'Wing Kee Restaurant 榮記餐廳', type:'茶餐廳', address:'吉席街35號', lat:22.2832, lng:114.1285, price:38, rating:3.6 },
-  { id:24, name:'Lucky Cafe 好運茶餐廳', type:'茶餐廳', address:'皇后大道西420號', lat:22.2865, lng:114.1340, price:40, rating:3.7 },
-  { id:25, name:'Sun Kee Restaurant 新記餐廳', type:'茶餐廳', address:'西營盤正街18號', lat:22.2870, lng:114.1420, price:42, rating:3.8 },
-  
-  // 粥粉麵
-  { id:6, name:'Wish You Well Congee 祝君好粥店', type:'粥粉麵', address:'卑路乍街32號A', lat:22.2830830, lng:114.1300600, price:35, rating:3.8 },
-  { id:8, name:'Nam Kee Noodle 南記粉麵', type:'粥粉麵', address:'卑路乍街116-122號1樓', lat:22.2823400, lng:114.1274060, price:42, rating:3.5 },
-  { id:9, name:'Yuen Hing Lung 源興隆麵家', type:'粥粉麵', address:'皇后大道西453號', lat:22.2862750, lng:114.1349296, price:40, rating:4.1 },
-  { id:15, name:'Barchua House 八爪魚', type:'粥粉麵', address:'石塘咀', lat:22.2870313, lng:114.1376790, price:40, rating:4.0 },
-  { id:20, name:'源興隆麵家', type:'粉麵', address:'西環', lat:22.2862567, lng:114.1349412, price:38, rating:4.1 },
-  { id:26, name:'Kau Kee Restaurant 九記牛腩', type:'粉麵', address:'上環歌賦街21號', lat:22.2845, lng:114.1520, price:50, rating:4.3 },
-  { id:27, name:'Wing Lok Noodle 永樂粉麵', type:'粉麵', address:'西環德輔道西', lat:22.2880, lng:114.1380, price:35, rating:3.8 },
-  { id:28, name:'Wai Kee Noodle 惠記粉麵', type:'粉麵', address:'西營盤第三街', lat:22.2865, lng:114.1400, price:38, rating:3.9 },
-  { id:29, name:'Cheung Kee 祥記麵家', type:'粉麵', address:'堅尼地城士美非路', lat:22.2810, lng:114.1285, price:36, rating:3.7 },
-  { id:30, name:'Man Kee 文記粉麵', type:'粉麵', address:'石塘咀皇后大道西', lat:22.2875, lng:114.1360, price:40, rating:3.8 },
-  
-  // 快餐
-  { id:10, name:'HKU Canteen 港大食堂', type:'快餐', address:'香港大學', lat:22.2827402, lng:114.1364780, price:35, rating:3.4 },
-  { id:12, name:'Fairwood 大快活', type:'快餐', address:'士美菲路41號', lat:22.2820379, lng:114.1279935, price:40, rating:3.4 },
-  { id:31, name:'Cafe de Coral 大家樂', type:'快餐', address:'西環卑路乍街', lat:22.2840, lng:114.1350, price:42, rating:3.5 },
-  { id:32, name:'Maxim\'s 美心MX', type:'快餐', address:'石塘咀山道', lat:22.2870, lng:114.1350, price:40, rating:3.6 },
-  { id:33, name:'Yoshinoya 吉野家', type:'快餐', address:'西環德輔道西', lat:22.2885, lng:114.1370, price:38, rating:3.4 },
-  
-  // 點心/茶樓
-  { id:18, name:'蓮香樓', type:'茶樓', address:'皇后大道西526號', lat:22.2861987, lng:114.1345286, price:50, rating:4.2 },
-  { id:19, name:'點點心', type:'點心', address:'西環', lat:22.2859321, lng:114.1338562, price:48, rating:4.0 },
-  { id:34, name:'One Dim Sum 一點心', type:'點心', address:'西營盤', lat:22.2850, lng:114.1430, price:45, rating:4.1 },
-  { id:35, name:'Dim Dim Sum 點點心', type:'點心', address:'堅尼地城', lat:22.2820, lng:114.1270, price:46, rating:3.9 },
-  
-  // 其他亞洲菜
-  { id:7, name:'津津食店', type:'越南菜', address:'卑路乍街55號', lat:22.2832215, lng:114.1298200, price:45, rating:3.9 },
-  { id:14, name:'GOLD Thai Heng 泰興', type:'泰國菜', address:'吉席街50-50A號', lat:22.2831042, lng:114.1275920, price:45, rating:3.9 },
-  { id:36, name:'Thai BBQ 泰燒烤', type:'泰國菜', address:'西環', lat:22.2860, lng:114.1340, price:48, rating:3.8 },
-  { id:37, name:'Brass Spoon 金銀匙', type:'越南菜', address:'上環', lat:22.2840, lng:114.1500, price:50, rating:4.0 },
-  { id:38, name:'Pho 24', type:'越南菜', address:'西環', lat:22.2850, lng:114.1360, price:45, rating:3.7 },
-  { id:39, name:'Sushi Express 爭鮮', type:'日本菜', address:'石塘咀', lat:22.2875, lng:114.1365, price:48, rating:3.6 },
-  { id:40, name:'Genki Sushi 元氣壽司', type:'日本菜', address:'西環', lat:22.2845, lng:114.1380, price:50, rating:3.8 },
-  
-  // 西餐/其他
-  { id:11, name:'Saizeriya 薩莉亞', type:'意大利菜', address:'士美菲路45-51號', lat:22.2816859, lng:114.1281275, price:45, rating:3.7 },
-  { id:16, name:'老北方餃子館', type:'中菜', address:'上環皇后街熟食中心', lat:22.2872315, lng:114.1474189, price:40, rating:3.9 },
-  { id:17, name:'Kebab 土耳其烤肉', type:'中東菜', address:'西營盤', lat:22.2865300, lng:114.1368400, price:42, rating:4.1 },
-  { id:41, name:'Paisano\'s Pizza', type:'意大利菜', address:'西環', lat:22.2835, lng:114.1320, price:48, rating:4.0 },
-  { id:42, name:'Burger King 漢堡王', type:'快餐', address:'石塘咀', lat:22.2870, lng:114.1360, price:40, rating:3.3 },
-  { id:43, name:'McDonald\'s 麥當勞', type:'快餐', address:'堅尼地城', lat:22.2815, lng:114.1280, price:35, rating:3.2 },
-  { id:44, name:'Subway', type:'快餐', address:'西環', lat:22.2855, lng:114.1370, price:38, rating:3.4 },
-  { id:45, name:'TamJai SamGor 譚仔三哥', type:'米線', address:'西環', lat:22.2860, lng:114.1380, price:42, rating:3.8 },
-  { id:46, name:'TamJai Yunnan 譚仔雲南', type:'米線', address:'石塘咀', lat:22.2875, lng:114.1350, price:42, rating:3.7 },
-  { id:47, name:'KFC 肯德基', type:'快餐', address:'西環', lat:22.2840, lng:114.1390, price:38, rating:3.3 },
-  { id:48, name:'Pepper Lunch 胡椒廚房', type:'快餐', address:'西環', lat:22.2850, lng:114.1400, price:48, rating:3.6 },
-  { id:49, name:'Chateraise 莎得徠茲', type:'甜品', address:'西環', lat:22.2830, lng:114.1410, price:35, rating:4.0 },
-  { id:50, name:'A1 Bakery A1麵包店', type:'麵包', address:'堅尼地城', lat:22.2820, lng:114.1290, price:25, rating:3.8 },
+  { id:5, name:'McDonald\'s 麥當勞 (士美菲路)', type:'快餐', address:'士美菲路12F號宏光閣地下', lat:22.2821823, lng:114.1284249, price:35, rating:3.4 },
+  { id:6, name:'McDonald\'s 麥當勞 (卑路乍街)', type:'快餐', address:'卑路乍街8號The Westwood', lat:22.2856032, lng:114.1329466, price:35, rating:3.4 },
+  { id:7, name:'Pici', type:'意大利菜', address:'加多近街45-55號翰宇大廈地下5-9號舖', lat:22.2817380, lng:114.1264158, price:50, rating:4.8 },
+  { id:8, name:'Thairos Thai Food', type:'泰國菜', address:'厚和街6-18號', lat:22.2827905, lng:114.1277828, price:45, rating:4.4 },
+  { id:9, name:'BRESOLA', type:'西餐', address:'吉席街78-86號裕安大廈地下', lat:22.2830246, lng:114.1269493, price:50, rating:4.6 },
+  { id:10, name:'Twelve Flavors 十二味', type:'中菜', address:'卑路乍街13號珍珠閣地下2-4號舖', lat:22.2843917, lng:114.1312318, price:50, rating:4.8 },
   
   // ===== 西營盤 =====
   { id:51, name:'康記粉麵', type:'粥粉麵', address:'皇后大道西425號', lat:22.2861562, lng:114.1360696, price:38, rating:4.2 },
