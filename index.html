@@ -31,7 +31,20 @@
     .badge { background: var(--red); color: var(--white); font-size: 12px; padding: 4px 10px; border-radius: 12px; }
 
     /* Stats */
-    .stats { background: #FEF9C3; padding: 8px 16px; font-size: 12px; color: #92400E; display: flex; gap: 16px; flex-wrap: wrap; }
+    .stats { background: #FEF9C3; padding: 8px 16px; font-size: 12px; color: #92400E; display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+    .district-tags { display: flex; gap: 6px; flex-wrap: wrap; flex: 1; }
+    .district-tag { 
+      background: white; 
+      border: 1px solid #FDE68A; 
+      padding: 3px 10px; 
+      border-radius: 12px; 
+      cursor: pointer; 
+      font-size: 11px;
+      transition: all 0.15s;
+      white-space: nowrap;
+    }
+    .district-tag:hover { background: #FEF3C7; border-color: #F59E0B; }
+    .district-tag.active { background: var(--green); color: white; border-color: var(--green); }
 
     /* Submit Button - Fixed */
     .submit-btn { 
@@ -228,9 +241,9 @@
 </header>
 
 <div class="stats">
-  <span>📍 堅尼地城 · 西營盤 · 銅鑼灣 · 中環 · 旺角 · 灣仔 · 上環 · 北角 · 筲箕灣 · 深水埗 · 油麻地 · 尖沙咀 · 太子</span>
-  <span>收錄 <strong id="count">106</strong> 間</span>
-  <button onclick="locateUser()" style="margin-left:auto;background:var(--green);color:white;border:none;padding:4px 10px;border-radius:12px;font-size:11px;cursor:pointer;">📍 定位我</button>
+  <div class="district-tags" id="districtTags"></div>
+  <span style="white-space: nowrap;">收錄 <strong id="count">106</strong> 間</span>
+  <button onclick="locateUser()" style="background:var(--green);color:white;border:none;padding:4px 10px;border-radius:12px;font-size:11px;cursor:pointer;white-space: nowrap;">📍 定位我</button>
 </div>
 
 <div class="main">
@@ -346,6 +359,25 @@
 </div>
 
 <script>
+// 行政区数据（中心坐标和缩放级别）
+const DISTRICTS = {
+  '堅尼地城': { lat: 22.2825, lng: 114.1285, zoom: 15 },
+  '西營盤': { lat: 22.2865, lng: 114.1405, zoom: 15 },
+  '銅鑼灣': { lat: 22.2800, lng: 114.1850, zoom: 15 },
+  '中環': { lat: 22.2835, lng: 114.1550, zoom: 15 },
+  '灣仔': { lat: 22.2775, lng: 114.1700, zoom: 15 },
+  '上環': { lat: 22.2860, lng: 114.1500, zoom: 15 },
+  '北角': { lat: 22.2915, lng: 114.2000, zoom: 15 },
+  '筲箕灣': { lat: 22.2785, lng: 114.2300, zoom: 15 },
+  '旺角': { lat: 22.3195, lng: 114.1695, zoom: 15 },
+  '深水埗': { lat: 22.3310, lng: 114.1620, zoom: 15 },
+  '油麻地': { lat: 22.3085, lng: 114.1705, zoom: 15 },
+  '尖沙咀': { lat: 22.2970, lng: 114.1720, zoom: 15 },
+  '太子': { lat: 22.3240, lng: 114.1680, zoom: 15 }
+};
+
+let currentDistrict = null;
+
 // Google Places API 驗證真實數據 - 香港多區平價餐廳
 const RESTAURANTS = [
   // ===== 堅尼地城（Google Places API 驗證真實存在）=====
@@ -501,6 +533,9 @@ function init() {
     markers[r.id] = marker;
   });
 
+  // 渲染区域标签
+  renderDistrictTags();
+
   renderList(RESTAURANTS);
 
   // 搜索
@@ -513,6 +548,54 @@ function init() {
     );
     renderList(filtered);
   });
+}
+
+function renderDistrictTags() {
+  const container = document.getElementById('districtTags');
+  const districts = Object.keys(DISTRICTS);
+  const allActive = currentDistrict === null ? 'active' : '';
+  container.innerHTML = 
+    `<span class="district-tag ${allActive}" onclick="selectDistrict(null)">全部</span>` +
+    districts.map(d => 
+      `<span class="district-tag ${d === currentDistrict ? 'active' : ''}" onclick="selectDistrict('${d}')">${d}</span>`
+    ).join('');
+}
+
+function selectDistrict(district) {
+  currentDistrict = district;
+  renderDistrictTags();
+  
+  if (district === null) {
+    // 显示全部
+    map.flyTo([22.29, 114.15], 12, { duration: 1 });
+    renderList(RESTAURANTS);
+    return;
+  }
+  
+  const d = DISTRICTS[district];
+  if (d) {
+    map.flyTo([d.lat, d.lng], d.zoom, { duration: 1 });
+    
+    // 筛选该区域的餐厅（根据餐厅ID范围判断区域）
+    const districtRestaurants = RESTAURANTS.filter(r => {
+      if (district === '堅尼地城' && r.id >= 1 && r.id <= 10) return true;
+      if (district === '西營盤' && r.id >= 51 && r.id <= 60) return true;
+      if (district === '銅鑼灣' && r.id >= 61 && r.id <= 69) return true;
+      if (district === '中環' && r.id >= 70 && r.id <= 83) return true;
+      if (district === '灣仔' && r.id >= 101 && r.id <= 108) return true;
+      if (district === '上環' && r.id >= 109 && r.id <= 116) return true;
+      if (district === '北角' && r.id >= 117 && r.id <= 121) return true;
+      if (district === '筲箕灣' && r.id >= 122 && r.id <= 128) return true;
+      if (district === '深水埗' && r.id >= 201 && r.id <= 210) return true;
+      if (district === '油麻地' && r.id >= 211 && r.id <= 219) return true;
+      if (district === '尖沙咀' && r.id >= 301 && r.id <= 306) return true;
+      if (district === '太子' && r.id >= 307 && r.id <= 309) return true;
+      if (district === '旺角' && r.id >= 84 && r.id <= 93) return true;
+      return false;
+    });
+    
+    renderList(districtRestaurants);
+  }
 }
 
 function createPopupContent(r) {
