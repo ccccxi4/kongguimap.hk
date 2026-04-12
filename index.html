@@ -31,8 +31,31 @@
     .badge { background: var(--red); color: var(--white); font-size: 12px; padding: 4px 10px; border-radius: 12px; }
 
     /* Stats */
-    .stats { background: #FEF9C3; padding: 8px 16px; font-size: 12px; color: #92400E; display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
-    .district-tags { display: flex; gap: 6px; flex-wrap: wrap; flex: 1; }
+    .stats { background: #FEF9C3; padding: 8px 16px; font-size: 12px; color: #92400E; display: flex; gap: 12px; flex-wrap: wrap; align-items: flex-start; flex-direction: column; }
+    .stats-header { display: flex; gap: 12px; align-items: center; width: 100%; }
+    .stats-toggle { 
+      background: white; 
+      border: 1px solid #FDE68A; 
+      padding: 4px 12px; 
+      border-radius: 12px; 
+      cursor: pointer; 
+      font-size: 11px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      white-space: nowrap;
+    }
+    .stats-toggle:hover { background: #FEF3C7; }
+    .district-tags-container { 
+      display: flex; 
+      gap: 6px; 
+      flex-wrap: wrap; 
+      flex: 1;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      max-height: 200px;
+    }
+    .district-tags-container.collapsed { max-height: 0; }
     .district-tag { 
       background: white; 
       border: 1px solid #FDE68A; 
@@ -241,9 +264,17 @@
 </header>
 
 <div class="stats">
-  <div class="district-tags" id="districtTags"></div>
-  <span style="white-space: nowrap;">收錄 <strong id="count">106</strong> 間</span>
-  <button onclick="locateUser()" style="background:var(--green);color:white;border:none;padding:4px 10px;border-radius:12px;font-size:11px;cursor:pointer;white-space: nowrap;">📍 定位我</button>
+  <div class="stats-header">
+    <span class="stats-toggle" onclick="toggleDistricts()">
+      <span id="toggleIcon">▼</span>
+      <span id="toggleText">收起區域</span>
+    </span>
+    <span style="white-space: nowrap;">收錄 <strong id="count">106</strong> 間</span>
+    <button onclick="locateUser()" style="background:var(--green);color:white;border:none;padding:4px 10px;border-radius:12px;font-size:11px;cursor:pointer;white-space: nowrap;margin-left:auto;">📍 定位我</button>
+  </div>
+  <div class="district-tags-container" id="districtTagsContainer">
+    <div class="district-tags" id="districtTags"></div>
+  </div>
 </div>
 
 <div class="main">
@@ -548,6 +579,25 @@ function init() {
     );
     renderList(filtered);
   });
+}
+
+let districtsExpanded = true;
+
+function toggleDistricts() {
+  districtsExpanded = !districtsExpanded;
+  const container = document.getElementById('districtTagsContainer');
+  const icon = document.getElementById('toggleIcon');
+  const text = document.getElementById('toggleText');
+  
+  if (districtsExpanded) {
+    container.classList.remove('collapsed');
+    icon.textContent = '▼';
+    text.textContent = '收起區域';
+  } else {
+    container.classList.add('collapsed');
+    icon.textContent = '▶';
+    text.textContent = '展開區域';
+  }
 }
 
 function renderDistrictTags() {
