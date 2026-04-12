@@ -251,6 +251,41 @@
   提交餐廳
 </button>
 
+<!-- Location Permission Modal -->
+<div class="modal-overlay" id="locationModal">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title">📍 需要定位权限</div>
+      <button class="modal-close" onclick="closeLocationModal()">&times;</button>
+    </div>
+    <div style="margin-bottom: 20px;">
+      <p style="margin-bottom: 16px; line-height: 1.6;">为了显示您附近的餐厅，需要获取您的位置信息。</p>
+      
+      <div style="background: #F5F5F4; padding: 16px; border-radius: 10px; margin-bottom: 16px;">
+        <p style="font-weight: 600; margin-bottom: 12px; font-size: 13px; color: #78716C;">请按以下步骤开启：</p>
+        
+        <div style="margin-bottom: 12px;">
+          <p style="font-weight: 600; font-size: 13px; margin-bottom: 4px;">📱 iPhone/iPad</p>
+          <p style="font-size: 12px; color: #57534E;">设置 → Safari → 位置 → 允许</p>
+        </div>
+        
+        <div style="margin-bottom: 12px;">
+          <p style="font-weight: 600; font-size: 13px; margin-bottom: 4px;">🤖 Android</p>
+          <p style="font-size: 12px; color: #57534E;">设置 → 应用 → 浏览器 → 权限 → 位置 → 允许</p>
+        </div>
+        
+        <div>
+          <p style="font-weight: 600; font-size: 13px; margin-bottom: 4px;">💻 电脑浏览器</p>
+          <p style="font-size: 12px; color: #57534E;">点击地址栏左侧的 🔒 图标 → 网站设置 → 位置 → 允许</p>
+        </div>
+      </div>
+      
+      <p style="font-size: 12px; color: #78716C; margin-bottom: 16px;">开启后点击下方的"重新定位"按钮</p>
+    </div>
+    <button class="form-submit" onclick="retryLocate()">重新定位</button>
+  </div>
+</div>
+
 <!-- Submit Modal -->
 <div class="modal-overlay" id="modal">
   <div class="modal">
@@ -595,19 +630,20 @@ function locateUser() {
       }, 1000);
     },
     (error) => {
-      let msg = '无法获取您的位置';
-      switch(error.code) {
-        case error.PERMISSION_DENIED:
-          msg = '请允许使用定位权限';
-          break;
-        case error.POSITION_UNAVAILABLE:
-          msg = '位置信息不可用';
-          break;
-        case error.TIMEOUT:
-          msg = '定位超时';
-          break;
+      if (error.code === error.PERMISSION_DENIED) {
+        openLocationModal();
+      } else {
+        let msg = '无法获取您的位置';
+        switch(error.code) {
+          case error.POSITION_UNAVAILABLE:
+            msg = '位置信息不可用，请检查GPS是否开启';
+            break;
+          case error.TIMEOUT:
+            msg = '定位超时，请重试';
+            break;
+        }
+        alert(msg);
       }
-      alert(msg);
     },
     { enableHighAccuracy: true, timeout: 10000, maximumAge: 60000 }
   );
@@ -624,6 +660,25 @@ function calcDistance(lat1, lng1, lat2, lng2) {
             Math.sin(dLng/2) * Math.sin(dLng/2);
   const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
   return R * c;
+}
+
+// Location Permission Modal functions
+function openLocationModal() {
+  document.getElementById('locationModal').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLocationModal() {
+  document.getElementById('locationModal').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+function retryLocate() {
+  closeLocationModal();
+  // 短暂延迟后重新尝试定位
+  setTimeout(() => {
+    locateUser();
+  }, 300);
 }
 
 // Modal functions
@@ -663,6 +718,10 @@ function handleSubmit(e) {
 // Close modal on outside click
 document.getElementById('modal').addEventListener('click', (e) => {
   if (e.target === document.getElementById('modal')) closeModal();
+});
+
+document.getElementById('locationModal').addEventListener('click', (e) => {
+  if (e.target === document.getElementById('locationModal')) closeLocationModal();
 });
 
 init();
