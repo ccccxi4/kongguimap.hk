@@ -1,0 +1,482 @@
+{
+  "verified": [
+    {
+      "id": 1,
+      "name": "Yee Kee Restaurant 怡記餐廳",
+      "verified": true,
+      "api_name": "宜記甜品",
+      "distance_m": 0.0,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJA9AkXpD_AzQRf4ptwAA9sQY"
+    },
+    {
+      "id": 2,
+      "name": "Ho Ho Restaurant 好好餐廳",
+      "verified": true,
+      "api_name": "可可店",
+      "distance_m": 0.4,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJy9xEp5D_AzQRLvZ0FUVZMt0"
+    },
+    {
+      "id": 3,
+      "name": "Sing Kee Restaurant 勝記餐廳",
+      "verified": true,
+      "api_name": "誠記",
+      "distance_m": 0.0,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJeWYogpD_AzQRF7280C7HqCo"
+    },
+    {
+      "id": 4,
+      "name": "Sun Hing Restaurant 新興食家",
+      "verified": true,
+      "api_name": "新興食家",
+      "distance_m": 2.2,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJhyt69h5H_xMRtCMJ9mYWB1s"
+    },
+    {
+      "id": 5,
+      "name": "McDonald's 麥當勞 (士美菲路)",
+      "verified": true,
+      "api_name": "麥當勞 (士美菲路店)",
+      "distance_m": 8.3,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJwbgpeJr_AzQR6wUe4smyVJQ"
+    },
+    {
+      "id": 6,
+      "name": "McDonald's 麥當勞 (卑路乍街)",
+      "verified": true,
+      "api_name": "麥當勞",
+      "distance_m": 0.0,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJ1442wYT_AzQRtQiEsUd1UjM"
+    },
+    {
+      "id": 7,
+      "name": "Pici",
+      "verified": true,
+      "api_name": "Pici",
+      "distance_m": 0.0,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJ9zbJeAz_AzQR-UWoawzySt8"
+    },
+    {
+      "id": 8,
+      "name": "Thairos Thai Food",
+      "verified": true,
+      "api_name": "泰厨坊",
+      "distance_m": 63.8,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJIQ_-MAD_AzQRab3lOh6TTUE"
+    },
+    {
+      "id": 9,
+      "name": "BRESOLA",
+      "verified": true,
+      "api_name": "BRESOLA",
+      "distance_m": 0.0,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJgbv18Jr_AzQRFmXHH11rECw"
+    },
+    {
+      "id": 10,
+      "name": "Twelve Flavors 十二味",
+      "verified": true,
+      "api_name": "十二味",
+      "distance_m": 0.0,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJc0V37pr_AzQRsp5d3kRplTg"
+    },
+    {
+      "id": 51,
+      "name": "康記粉麵",
+      "verified": true,
+      "api_name": "康記粉麵",
+      "distance_m": 0.0,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJkx2CCoT_AzQRMDLI8Q_TqCc"
+    },
+    {
+      "id": 52,
+      "name": "Junels Restobar",
+      "verified": true,
+      "api_name": "Junels Restobar Filipino Bar and Restaurant",
+      "distance_m": 0.0,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJ1cefQYH_AzQRlBF9MTtg59U"
+    },
+    {
+      "id": 53,
+      "name": "Happiness Single Coffee",
+      "verified": true,
+      "api_name": "幸福單品咖啡",
+      "distance_m": 0.0,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJV77vSYf_AzQRBt5yJUvRrRg"
+    },
+    {
+      "id": 54,
+      "name": "Kam Cheung Spare Ribs Noodle 金祥排骨麵",
+      "verified": true,
+      "api_name": "金祥排骨麵",
+      "distance_m": 0.0,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJQz0_XYH_AzQRD9ItK4NYHrY"
+    },
+    {
+      "id": 55,
+      "name": "Hong Lok Restaurant 康樂餐廳",
+      "verified": true,
+      "api_name": "康樂茶餐廳",
+      "distance_m": 0.0,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJx5FhJoH_AzQR7Qhn0cmurKk"
+    },
+    {
+      "id": 56,
+      "name": "Hainan (First Street)",
+      "verified": true,
+      "api_name": "海南 (第一街店)",
+      "distance_m": 0.0,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJ2YNCinP_AzQRUbk71Pp582g"
+    },
+    {
+      "id": 57,
+      "name": "Chiuchownese Noodle Shop 潮州麵店",
+      "verified": true,
+      "api_name": "潮州人粉麵店",
+      "distance_m": 0.0,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJ_54TX4D_AzQR2u38m-Vpf6s"
+    },
+    {
+      "id": 58,
+      "name": "Luen Wah Cafe 聯華茶餐廳",
+      "verified": true,
+      "api_name": "聯華茶餐廳",
+      "distance_m": 0.0,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJw-lo7YD_AzQRlpUTglCCCzI"
+    },
+    {
+      "id": 59,
+      "name": "Po Kee BBQ Restaurant 寶記燒臘",
+      "verified": true,
+      "api_name": "Po Kee BBQ Restaurant",
+      "distance_m": 10.8,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJvdKYDIT_AzQRZa6RwwCFAzw"
+    },
+    {
+      "id": 60,
+      "name": "Modern Fast Food 現代快餐",
+      "verified": true,
+      "api_name": "摩登快餐廳",
+      "distance_m": 0.0,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJJwQ6ZYH_AzQR5E1voGex0n0"
+    },
+    {
+      "id": 61,
+      "name": "Chung Kee Congee 忠記粥品",
+      "verified": true,
+      "api_name": "忠記粥品",
+      "distance_m": 7.9,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJ6yBlWDoBBDQR9zqkFg4YDV8"
+    },
+    {
+      "id": 62,
+      "name": "Chiu Hing Restaurant 超興粉麵",
+      "verified": true,
+      "api_name": "潮興魚蛋粉（新城大廈西）",
+      "distance_m": 0.8,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJ4W9NI1cABDQRIdAv1TZITxk"
+    },
+    {
+      "id": 63,
+      "name": "Wing Kee Noodle 榮記粉麵",
+      "verified": true,
+      "api_name": "榮記粉麵",
+      "distance_m": 0.0,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJzfRwPlQABDQRugr2D0YN7UM"
+    },
+    {
+      "id": 64,
+      "name": "肥仔記麵家 (銅鑼灣)",
+      "verified": true,
+      "api_name": "肥仔記麵家 (銅鑼灣)",
+      "distance_m": 0.0,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJN7xmpVYABDQRevlEjANS9sg"
+    },
+    {
+      "id": 65,
+      "name": "Cafe de Coral 大家樂 (銅鑼灣)",
+      "verified": true,
+      "api_name": "大家樂",
+      "distance_m": 0.0,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJAQAw2lYABDQRd7H3r8wBPQo"
+    },
+    {
+      "id": 66,
+      "name": "Habibs Middle Eastern",
+      "verified": true,
+      "api_name": "Habibs Middle Eastern & Indian Food",
+      "distance_m": 0.0,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJ-_Nj3_8ABDQRX4tiQtIKdcQ"
+    },
+    {
+      "id": 67,
+      "name": "Angus Cafe Angus茶餐廳",
+      "verified": true,
+      "api_name": "半島冰室",
+      "distance_m": 0.0,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJF6mv_QEBBDQRXEiJaCuJGYI"
+    },
+    {
+      "id": 68,
+      "name": "Dragon City Cafe 龍城茶餐廳",
+      "verified": true,
+      "api_name": "Dragon City Cafe (Causeway Bay)",
+      "distance_m": 0.0,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJAQAc5VYABDQRA5osiWe5jBc"
+    },
+    {
+      "id": 69,
+      "name": "McDonald's 麥當勞 (怡和街)",
+      "verified": true,
+      "api_name": "麥當勞大廈",
+      "distance_m": 0.0,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJBf8hGVQABDQRwp1XySA-qhk"
+    },
+    {
+      "id": 70,
+      "name": "Bánh Mì Kitchen",
+      "verified": true,
+      "api_name": "Bánh Mì Kitchen",
+      "distance_m": 0.0,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJnSiIrmQABDQR6Ts54jl-jks"
+    },
+    {
+      "id": 71,
+      "name": "New Forest Restaurant 新森林",
+      "verified": true,
+      "api_name": "新森林焗之專門店 - 中環",
+      "distance_m": 0.0,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJtQ2ynnwABDQRfp_X1Nuoc74"
+    },
+    {
+      "id": 72,
+      "name": "Wang Fu 王府餃子",
+      "verified": true,
+      "api_name": "王府正宗北京水餃",
+      "distance_m": 0.0,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJQbepXXsABDQRsdqJ9eDEMxw"
+    },
+    {
+      "id": 73,
+      "name": "Tsim Chai Kee Noodle 沾仔記 (威靈頓街)",
+      "verified": true,
+      "api_name": "Tsim Chai Kee Noodle",
+      "distance_m": 0.0,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJFd-lXXsABDQRSR3-Bz40T3Q"
+    },
+    {
+      "id": 74,
+      "name": "To Good (Central)",
+      "verified": true,
+      "api_name": "To Good (Central)",
+      "distance_m": 0.0,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJ_bIQkXwABDQRuVo1IR3PTCs"
+    },
+    {
+      "id": 75,
+      "name": "Tsim Chai Kee Noodle 沾仔記 (皇后大道中)",
+      "verified": true,
+      "api_name": "沾仔記 (皇后大道中店)",
+      "distance_m": 0.0,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJNW7xjnwABDQR4FCbMzC_oIY"
+    },
+    {
+      "id": 76,
+      "name": "Home.dumpling",
+      "verified": true,
+      "api_name": "住家餃子專門店",
+      "distance_m": 0.0,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJVVUFGJr_AzQRKOtYGSBkVXc"
+    },
+    {
+      "id": 77,
+      "name": "Sing Heung Yuen 勝香園",
+      "verified": true,
+      "api_name": "勝香園",
+      "distance_m": 0.0,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJN6xaf3wABDQRd0iCgMPj9jg"
+    },
+    {
+      "id": 78,
+      "name": "Tim Ho Wan (Central) 添好運",
+      "verified": true,
+      "api_name": "Tim Ho Wan (Central)",
+      "distance_m": 0.0,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJFaKIAGMABDQRN-JA3EpHFJc"
+    },
+    {
+      "id": 79,
+      "name": "Samdor Noodle 三多麵店",
+      "verified": true,
+      "api_name": "三多麵食",
+      "distance_m": 0.0,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJDQ4_VXsABDQRRSF4WfvdpIk"
+    },
+    {
+      "id": 80,
+      "name": "Small Rainy Day 小雨天",
+      "verified": true,
+      "api_name": "小雨天",
+      "distance_m": 0.0,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJ2bFzX3sABDQRVZwRht__1Vo"
+    },
+    {
+      "id": 81,
+      "name": "Nam Kee Spring Roll Noodle 南記粉麵",
+      "verified": true,
+      "api_name": "南記粉麵",
+      "distance_m": 1.3,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJt5MJWXsABDQR9_GKRtmBS6w"
+    },
+    {
+      "id": 82,
+      "name": "27 Kebab House",
+      "verified": true,
+      "api_name": "27 Kebab House",
+      "distance_m": 0.0,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJH_rdEnsABDQR8t2ydsXkdDM"
+    },
+    {
+      "id": 83,
+      "name": "Yoshinoya 吉野家 (中環)",
+      "verified": true,
+      "api_name": "吉野家",
+      "distance_m": 0.0,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJ46ofYmMABDQRdIcv8EC6xZg"
+    },
+    {
+      "id": 84,
+      "name": "One Dim Sum 一點心 (太子)",
+      "verified": true,
+      "api_name": "一點心",
+      "distance_m": 0.0,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJZTOZi8kABDQR6mCupQnajEI"
+    },
+    {
+      "id": 85,
+      "name": "Mui Kee Congee 妹記生滾粥品",
+      "verified": true,
+      "api_name": "妹記生滾粥品",
+      "distance_m": 0.0,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJVcBKfcgABDQRFye0RlJKObk"
+    },
+    {
+      "id": 86,
+      "name": "Kam Wah Cafe 金華冰廳",
+      "verified": true,
+      "api_name": "金華冰廳",
+      "distance_m": 0.0,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJx191T8gABDQRz11N1JVF6Is"
+    },
+    {
+      "id": 87,
+      "name": "Eastern Delights 東方小祇園",
+      "verified": true,
+      "api_name": "東方小祇園",
+      "distance_m": 4589.8,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJZ9-tsVsABDQRt0BaoO1D5F0"
+    },
+    {
+      "id": 88,
+      "name": "Malay Restaurant 馬來餐廳",
+      "verified": true,
+      "api_name": "兩草 (旺角總店)",
+      "distance_m": 257.4,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJC373QpQBBDQRE149o48ujkw"
+    },
+    {
+      "id": 89,
+      "name": "Fairwood 大快活 (旺角)",
+      "verified": true,
+      "api_name": "大快活 (中信大廈店)",
+      "distance_m": 508.9,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJf4T_Ag8BBDQRQdwsm7beiSw"
+    },
+    {
+      "id": 90,
+      "name": "Sai Kee Congee Shop 西記粥店",
+      "verified": true,
+      "api_name": "西記粥店",
+      "distance_m": 1.6,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJiWaoA7gABDQR1QknKzIhlWw"
+    },
+    {
+      "id": 91,
+      "name": "Yet Shin Eatery 日新美食",
+      "verified": true,
+      "api_name": "日升美食店",
+      "distance_m": 0.0,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJ8cmricgABDQRBO4MisrV9SQ"
+    },
+    {
+      "id": 92,
+      "name": "Wing Yuen Noodle 永園麵家",
+      "verified": true,
+      "api_name": "Wing Yuen Noodle",
+      "distance_m": 0.0,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJDcKktccABDQR1pk9ivqX9v4"
+    },
+    {
+      "id": 93,
+      "name": "Tim Ho Wan 添好運 (奧運)",
+      "verified": true,
+      "api_name": "添好運點心專門店",
+      "distance_m": 0.0,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJV7CvmsYABDQRGNZ-NNq_ZQI"
+    }
+  ],
+  "failed": []
+}

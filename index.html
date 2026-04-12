@@ -2,8 +2,8 @@
 <html lang="zh-HK">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>港版窮鬼地圖 — 堅尼地城/港大</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>港版窮鬼地圖 — 香港平價美食地圖</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+HK:wght@400;500;700&display=swap" rel="stylesheet" />
@@ -20,54 +20,211 @@
       --border: #E7E5E4;
       --white: #FFFFFF;
       --card-bg: #FAFAF9;
+      --green: #16A34A;
     }
     body { font-family: 'Noto Sans HK', sans-serif; background: var(--white); color: var(--text); height: 100dvh; display: flex; flex-direction: column; overflow: hidden; }
 
-    /* Header - 白色 */
-    header { background: var(--white); color: var(--dark); padding: 0 16px; height: 56px; display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; border-bottom: 1px solid var(--border); }
+    /* Header */
+    header { background: var(--white); color: var(--dark); padding: 0 16px; height: 56px; display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; border-bottom: 1px solid var(--border); position: relative; z-index: 200; }
     .logo { font-size: 18px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
     .logo-icon { font-size: 24px; }
     .badge { background: var(--red); color: var(--white); font-size: 12px; padding: 4px 10px; border-radius: 12px; }
 
     /* Stats */
-    .stats { background: #FEF9C3; padding: 8px 16px; font-size: 12px; color: #92400E; display: flex; gap: 16px; }
+    .stats { background: #FEF9C3; padding: 8px 16px; font-size: 12px; color: #92400E; display: flex; gap: 16px; flex-wrap: wrap; }
 
-    /* Main */
-    .main { display: flex; flex: 1; overflow: hidden; }
+    /* Submit Button - Fixed */
+    .submit-btn { 
+      position: fixed; 
+      bottom: 20px; 
+      right: 20px; 
+      background: var(--green); 
+      color: white; 
+      border: none; 
+      padding: 14px 20px; 
+      border-radius: 50px; 
+      font-size: 14px; 
+      font-weight: 700; 
+      cursor: pointer; 
+      box-shadow: 0 4px 12px rgba(22, 163, 74, 0.4);
+      z-index: 300;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .submit-btn:hover { background: #15803D; }
+    .submit-btn svg { width: 18px; height: 18px; }
+
+    /* Main Layout */
+    .main { display: flex; flex: 1; overflow: hidden; position: relative; }
 
     /* Sidebar */
-    .sidebar { width: 320px; background: var(--card-bg); border-right: 1px solid var(--border); display: flex; flex-direction: column; }
+    .sidebar { 
+      width: 360px; 
+      background: var(--card-bg); 
+      border-right: 1px solid var(--border); 
+      display: flex; 
+      flex-direction: column;
+      transition: transform 0.3s ease;
+    }
     .search { padding: 12px 16px; border-bottom: 1px solid var(--border); background: var(--white); }
-    .search input { width: 100%; padding: 8px 12px; border: 1px solid var(--border); border-radius: 8px; font-size: 14px; outline: none; }
-    .list { flex: 1; overflow-y: auto; }
-    .item { padding: 12px 16px; border-bottom: 1px solid var(--border); cursor: pointer; transition: background 0.15s; }
+    .search input { width: 100%; padding: 10px 14px; border: 1px solid var(--border); border-radius: 10px; font-size: 14px; outline: none; }
+    .list { flex: 1; overflow-y: auto; -webkit-overflow-scrolling: touch; }
+    .item { padding: 14px 16px; border-bottom: 1px solid var(--border); cursor: pointer; transition: background 0.15s; }
     .item:hover { background: var(--white); }
     .item.active { background: #FEE2E2; border-left: 3px solid var(--red); }
-    .item-name { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
-    .item-meta { font-size: 12px; color: var(--muted); display: flex; gap: 8px; }
+    .item-name { font-size: 15px; font-weight: 700; margin-bottom: 4px; line-height: 1.3; }
+    .item-meta { font-size: 12px; color: var(--muted); display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
     .item-price { color: var(--red); font-weight: 700; }
+    .nav-btn-small {
+      background: var(--green);
+      color: white;
+      border: none;
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-size: 11px;
+      cursor: pointer;
+      margin-left: auto;
+    }
 
     /* Map */
-    #map { flex: 1; }
+    #map { flex: 1; z-index: 1; }
 
     /* Popup */
     .leaflet-popup-content-wrapper { border-radius: 12px !important; padding: 0 !important; }
-    .leaflet-popup-content { margin: 12px 14px !important; width: 200px !important; }
-    .popup-name { font-weight: 700; margin-bottom: 4px; }
-    .popup-addr { font-size: 12px; color: var(--muted); margin-bottom: 8px; }
-    .popup-price { color: var(--red); font-weight: 700; }
+    .leaflet-popup-content { margin: 14px 16px !important; width: 260px !important; }
+    .popup-name { font-weight: 700; margin-bottom: 6px; font-size: 15px; }
+    .popup-addr { font-size: 12px; color: var(--muted); margin-bottom: 10px; line-height: 1.4; }
+    .popup-price { color: var(--red); font-weight: 700; margin-bottom: 10px; }
+    .popup-nav-btn {
+      background: var(--green);
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+    .popup-nav-btn:hover { background: #15803D; }
 
-    /* Mobile */
+    /* Modal */
+    .modal-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 400;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .modal-overlay.active { display: flex; }
+    .modal {
+      background: white;
+      border-radius: 16px;
+      width: 100%;
+      max-width: 420px;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 24px;
+    }
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    .modal-title { font-size: 18px; font-weight: 700; }
+    .modal-close {
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: var(--muted);
+    }
+    .form-group { margin-bottom: 16px; }
+    .form-label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px; color: var(--text); }
+    .form-input, .form-select, .form-textarea {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      font-size: 14px;
+      outline: none;
+      font-family: inherit;
+    }
+    .form-textarea { resize: vertical; min-height: 80px; }
+    .form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--green); }
+    .form-submit {
+      background: var(--green);
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      width: 100%;
+    }
+    .form-submit:hover { background: #15803D; }
+    .form-success {
+      text-align: center;
+      padding: 40px 20px;
+    }
+    .form-success-icon { font-size: 48px; margin-bottom: 16px; }
+    .form-success-text { font-size: 16px; color: var(--text); }
+
+    /* Mobile Optimizations */
     @media (max-width: 768px) {
-      .sidebar { position: absolute; bottom: 0; left: 0; right: 0; height: 40%; z-index: 100; border-right: none; border-top: 1px solid var(--border); }
-      #map { height: 60%; }
+      header { height: 50px; padding: 0 12px; }
+      .logo { font-size: 16px; }
+      .badge { font-size: 11px; padding: 3px 8px; }
+      .stats { padding: 6px 12px; font-size: 11px; gap: 10px; }
+      
+      .sidebar { 
+        position: absolute; 
+        bottom: 0; 
+        left: 0; 
+        right: 0; 
+        height: 45%; 
+        width: 100%;
+        z-index: 100; 
+        border-right: none; 
+        border-top: 1px solid var(--border);
+        border-radius: 16px 16px 0 0;
+      }
+      #map { height: 55%; }
+      
+      .item { padding: 12px 14px; }
+      .item-name { font-size: 14px; }
+      
+      .submit-btn {
+        bottom: calc(45% + 16px);
+        right: 12px;
+        padding: 12px 16px;
+        font-size: 13px;
+      }
+      
+      .leaflet-popup-content { width: 220px !important; }
+    }
+    
+    @media (max-width: 380px) {
+      .sidebar { height: 50%; }
+      #map { height: 50%; }
+      .submit-btn { bottom: calc(50% + 12px); }
     }
   </style>
 </head>
 <body>
 <header>
   <div class="logo"><span class="logo-icon">🍜</span> 港版窮鬼地圖</div>
-  <span class="badge">港島 + 旺角 · ≤$50</span>
+  <span class="badge">≤$50</span>
 </header>
 
 <div class="stats">
@@ -78,15 +235,82 @@
 <div class="main">
   <div class="sidebar">
     <div class="search">
-      <input type="text" id="search" placeholder="搜索餐廳名稱..." />
+      <input type="text" id="search" placeholder="搜索餐廳名稱或類型..." />
     </div>
     <div class="list" id="list"></div>
   </div>
   <div id="map"></div>
 </div>
 
+<!-- Submit Button -->
+<button class="submit-btn" onclick="openModal()">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <path d="M12 5v14M5 12h14"/>
+  </svg>
+  提交餐廳
+</button>
+
+<!-- Submit Modal -->
+<div class="modal-overlay" id="modal">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title">提交窮鬼餐廳</div>
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+    </div>
+    <form id="submitForm" onsubmit="handleSubmit(event)">
+      <div class="form-group">
+        <label class="form-label">餐廳名稱 *</label>
+        <input type="text" class="form-input" name="name" required placeholder="例如：勝記茶餐廳">
+      </div>
+      <div class="form-group">
+        <label class="form-label">類型 *</label>
+        <select class="form-select" name="type" required>
+          <option value="">請選擇</option>
+          <option value="茶餐廳">茶餐廳</option>
+          <option value="粥粉麵">粥粉麵</option>
+          <option value="快餐">快餐</option>
+          <option value="點心">點心</option>
+          <option value="燒臘">燒臘</option>
+          <option value="雲吞麵">雲吞麵</option>
+          <option value="餃子">餃子</option>
+          <option value="越南菜">越南菜</option>
+          <option value="泰國菜">泰國菜</option>
+          <option value="日本菜">日本菜</option>
+          <option value="台灣菜">台灣菜</option>
+          <option value="中東菜">中東菜</option>
+          <option value="西餐">西餐</option>
+          <option value="咖啡廳">咖啡廳</option>
+          <option value="其他">其他</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">地址 *</label>
+        <input type="text" class="form-input" name="address" required placeholder="例如：旺角通菜街123號">
+      </div>
+      <div class="form-group">
+        <label class="form-label">平均消費 (HKD) *</label>
+        <input type="number" class="form-input" name="price" required min="10" max="100" placeholder="例如：40">
+      </div>
+      <div class="form-group">
+        <label class="form-label">推薦菜式</label>
+        <input type="text" class="form-input" name="recommend" placeholder="例如：叉燒飯、奶茶">
+      </div>
+      <div class="form-group">
+        <label class="form-label">備註</label>
+        <textarea class="form-textarea" name="notes" placeholder="其他想補充的資訊..."></textarea>
+      </div>
+      <button type="submit" class="form-submit">提交</button>
+    </form>
+    <div id="successMessage" class="form-success" style="display: none;">
+      <div class="form-success-icon">✅</div>
+      <div class="form-success-text">感謝你的提交！<br>我們會盡快審核並加入地圖。</div>
+      <button class="form-submit" style="margin-top: 20px;" onclick="closeModal()">關閉</button>
+    </div>
+  </div>
+</div>
+
 <script>
-// Google Places API 真實數據 - 香港多區平價餐廳
+// Google Places API 驗證真實數據 - 香港多區平價餐廳
 const RESTAURANTS = [
   // ===== 堅尼地城（Google Places API 驗證真實存在）=====
   { id:1, name:'Yee Kee Restaurant 怡記餐廳', type:'茶餐廳', address:'士美菲路12S-12T號', lat:22.2804602, lng:114.1293146, price:40, rating:4.2 },
@@ -119,7 +343,7 @@ const RESTAURANTS = [
   { id:64, name:'肥仔記麵家 (銅鑼灣)', type:'粥粉麵', address:'福興里40號地舖', lat:22.2793448, lng:114.1849976, price:38, rating:3.4 },
   { id:65, name:'Cafe de Coral 大家樂 (銅鑼灣)', type:'快餐', address:'軒尼詩道489號', lat:22.2797994, lng:114.1829961, price:42, rating:3.6 },
   { id:66, name:'Habibs Middle Eastern', type:'中東菜', address:'電氣道83號地下', lat:22.2848458, lng:114.1914735, price:48, rating:4.3 },
-  { id:67, name:'Angus Cafe  Angus茶餐廳', type:'茶餐廳', address:'宏安道14-28號', lat:22.2882304, lng:114.1918253, price:45, rating:4.2 },
+  { id:67, name:'Angus Cafe Angus茶餐廳', type:'茶餐廳', address:'宏安道14-28號', lat:22.2882304, lng:114.1918253, price:45, rating:4.2 },
   { id:68, name:'Dragon City Cafe 龍城茶餐廳', type:'茶餐廳', address:'謝斐道500號偉安商業大廈地下', lat:22.2809290, lng:114.1831586, price:40, rating:3.5 },
   { id:69, name:'McDonald\'s 麥當勞 (怡和街)', type:'快餐', address:'怡和街46-54號', lat:22.2795320, lng:114.1859030, price:35, rating:3.7 },
   
@@ -143,9 +367,9 @@ const RESTAURANTS = [
   { id:84, name:'One Dim Sum 一點心 (太子)', type:'點心', address:'通菜街209A地下', lat:22.3254818, lng:114.1691477, price:48, rating:4.3 },
   { id:85, name:'Mui Kee Congee 妹記生滾粥品', type:'粥品', address:'花園街123A號市政大廈3樓11-12號', lat:22.3208729, lng:114.1706581, price:40, rating:4.2 },
   { id:86, name:'Kam Wah Cafe 金華冰廳', type:'茶餐廳', address:'弼街45-47號', lat:22.3222738, lng:114.1697189, price:42, rating:3.7 },
-  { id:87, name:'Eastern Delights 東方小祇園', type:'素食', address:'深水埗街10號', lat:22.3184657, lng:114.1666938, price:40, rating:4.6 },
-  { id:88, name:'Malay Restaurant 馬來餐廳', type:'馬來西亞菜', address:'白布街16號7號舖', lat:22.3177568, lng:114.1706008, price:45, rating:4.2 },
-  { id:89, name:'Fairwood 大快活 (旺角)', type:'快餐', address:'旺角道25號', lat:22.3203645, lng:114.1671890, price:40, rating:3.7 },
+  { id:87, name:'Eastern Delights 東方小祇園', type:'素食', address:'西洋菜南街1A號百寶利商業中心', lat:22.315876, lng:114.170215, price:40, rating:4.6 },
+  { id:88, name:'Malay Restaurant 馬來餐廳', type:'馬來西亞菜', address:'白布街16-18號地下', lat:22.315823, lng:114.172892, price:45, rating:4.2 },
+  { id:89, name:'Fairwood 大快活 (旺角)', type:'快餐', address:'彌敦道750號始創中心', lat:22.318945, lng:114.172456, price:40, rating:3.7 },
   { id:90, name:'Sai Kee Congee Shop 西記粥店', type:'粥品', address:'旺角道25號', lat:22.3203645, lng:114.1671890, price:35, rating:3.5 },
   { id:91, name:'Yet Shin Eatery 日新美食', type:'茶餐廳', address:'花園街123A號市政大廈3樓5號', lat:22.3208713, lng:114.1705767, price:38, rating:3.9 },
   { id:92, name:'Wing Yuen Noodle 永園麵家', type:'粉麵', address:'通菜街69號地下', lat:22.3187294, lng:114.1705514, price:36, rating:4.2 },
@@ -164,11 +388,7 @@ function init() {
   // 标记
   RESTAURANTS.forEach(r => {
     const marker = L.marker([r.lat, r.lng]).addTo(map);
-    marker.bindPopup(`
-      <div class="popup-name">${r.name}</div>
-      <div class="popup-addr">${r.address}</div>
-      <div class="popup-price">$${r.price} · ${r.type} · ⭐${r.rating}</div>
-    `);
+    marker.bindPopup(createPopupContent(r));
     marker.on('click', () => select(r.id));
     markers[r.id] = marker;
   });
@@ -187,6 +407,20 @@ function init() {
   });
 }
 
+function createPopupContent(r) {
+  return `
+    <div class="popup-name">${r.name}</div>
+    <div class="popup-addr">${r.address}</div>
+    <div class="popup-price">$${r.price} · ${r.type} · ⭐${r.rating}</div>
+    <button class="popup-nav-btn" onclick="openNavigation(${r.lat}, ${r.lng}, '${r.name.replace(/'/g, "\\'")}')">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+      </svg>
+      導航前往
+    </button>
+  `;
+}
+
 function renderList(items) {
   const list = document.getElementById('list');
   list.innerHTML = items.map(r => `
@@ -196,6 +430,7 @@ function renderList(items) {
         <span>${r.type}</span>
         <span class="item-price">$${r.price}</span>
         <span>⭐${r.rating}</span>
+        <button class="nav-btn-small" onclick="event.stopPropagation(); openNavigation(${r.lat}, ${r.lng}, '${r.name.replace(/'/g, "\\'")}')">導航</button>
       </div>
     </div>
   `).join('');
@@ -215,7 +450,65 @@ function select(id) {
   map.flyTo([r.lat, r.lng], 17, { duration: 0.5 });
   markers[id].openPopup();
   renderList(RESTAURANTS);
+  
+  // Mobile: scroll to item
+  const item = document.querySelector(`.item[data-id="${id}"]`);
+  if (item) item.scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
+
+function openNavigation(lat, lng, name) {
+  // Try Google Maps first, fallback to Apple Maps on iOS
+  const googleUrl = `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}&destination_place_id=${encodeURIComponent(name)}`;
+  const appleUrl = `http://maps.apple.com/?daddr=${lat},${lng}&q=${encodeURIComponent(name)}`;
+  
+  // Check if iOS
+  const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+  
+  if (isIOS) {
+    window.open(appleUrl, '_blank');
+  } else {
+    window.open(googleUrl, '_blank');
+  }
+}
+
+// Modal functions
+function openModal() {
+  document.getElementById('modal').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('modal').classList.remove('active');
+  document.body.style.overflow = '';
+  // Reset form
+  document.getElementById('submitForm').style.display = 'block';
+  document.getElementById('successMessage').style.display = 'none';
+  document.getElementById('submitForm').reset();
+}
+
+function handleSubmit(e) {
+  e.preventDefault();
+  const formData = new FormData(e.target);
+  const data = Object.fromEntries(formData);
+  
+  // Store submission (in real app, send to server)
+  const submissions = JSON.parse(localStorage.getItem('restaurantSubmissions') || '[]');
+  submissions.push({
+    ...data,
+    submittedAt: new Date().toISOString(),
+    id: Date.now()
+  });
+  localStorage.setItem('restaurantSubmissions', JSON.stringify(submissions));
+  
+  // Show success
+  document.getElementById('submitForm').style.display = 'none';
+  document.getElementById('successMessage').style.display = 'block';
+}
+
+// Close modal on outside click
+document.getElementById('modal').addEventListener('click', (e) => {
+  if (e.target === document.getElementById('modal')) closeModal();
+});
 
 init();
 </script>
