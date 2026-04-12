@@ -228,8 +228,9 @@
 </header>
 
 <div class="stats">
-  <span>📍 堅尼地城 · 西營盤 · 銅鑼灣 · 中環 · 旺角 · 灣仔 · 上環 · 北角 · 筲箕灣 · 深水埗 · 油麻地</span>
-  <span>收錄 <strong id="count">97</strong> 間</span>
+  <span>📍 堅尼地城 · 西營盤 · 銅鑼灣 · 中環 · 旺角 · 灣仔 · 上環 · 北角 · 筲箕灣 · 深水埗 · 油麻地 · 尖沙咀 · 太子</span>
+  <span>收錄 <strong id="count">106</strong> 間</span>
+  <button onclick="locateUser()" style="margin-left:auto;background:var(--green);color:white;border:none;padding:4px 10px;border-radius:12px;font-size:11px;cursor:pointer;">📍 定位我</button>
 </div>
 
 <div class="main">
@@ -433,6 +434,19 @@ const RESTAURANTS = [
   { id:217, name:'麥當勞 油麻地店', type:'快餐', address:'油麻地彌敦道473號', lat:22.3124, lng:114.1710, price:35, rating:3.5 },
   { id:218, name:'大快活 油麻地店', type:'快餐', address:'油麻地彌敦道480號', lat:22.3055, lng:114.1708, price:40, rating:3.6 },
   { id:219, name:'富記燒臘', type:'燒臘', address:'油麻地廟街', lat:22.3069, lng:114.1693, price:40, rating:4.2 },
+  
+  // ===== 尖沙咀（Google Places API 驗證）=====
+  { id:301, name:'蘭芳園 尖沙咀店', type:'茶餐廳', address:'尖沙咀重慶大廈地庫活方商場', lat:22.2964, lng:114.1728, price:42, rating:4.0 },
+  { id:302, name:'澳門茶餐廳', type:'茶餐廳', address:'尖沙咀樂道40號', lat:22.2977, lng:114.1717, price:45, rating:4.1 },
+  { id:303, name:'池記 - 尖沙咀', type:'雲吞麵', address:'尖沙咀樂道52號', lat:22.2979, lng:114.1716, price:48, rating:4.2 },
+  { id:304, name:'麥當勞 尖沙咀店', type:'快餐', address:'尖沙咀北京道65號', lat:22.2965, lng:114.1709, price:35, rating:3.5 },
+  { id:305, name:'大家樂 尖沙咀店', type:'快餐', address:'尖沙咀彌敦道36號', lat:22.2965, lng:114.1728, price:42, rating:3.6 },
+  { id:306, name:'華嫂冰室 (尖沙咀)', type:'茶餐廳', address:'尖沙咀棉登徑8號', lat:22.2994, lng:114.1729, price:45, rating:4.3 },
+  
+  // ===== 太子（Google Places API 驗證）=====
+  { id:307, name:'金華冰廳', type:'茶餐廳', address:'太子弼街45-47號', lat:22.3223, lng:114.1697, price:42, rating:3.9 },
+  { id:308, name:'一點心', type:'點心', address:'太子通菜街209A地下', lat:22.3255, lng:114.1691, price:48, rating:4.3 },
+  { id:309, name:'麥當勞 太子店', type:'快餐', address:'太子彌敦道750號始創中心', lat:22.3223, lng:114.1684, price:35, rating:3.5 },
 ];
 
 let map, markers = {}, activeId = null;
@@ -489,6 +503,7 @@ function renderList(items) {
         <span>${r.type}</span>
         <span class="item-price">$${r.price}</span>
         <span>⭐${r.rating}</span>
+        ${r.distance ? `<span style="color:var(--green);font-size:11px;">${Math.round(r.distance)}m</span>` : ''}
         <button class="nav-btn-small" onclick="event.stopPropagation(); openNavigation(${r.lat}, ${r.lng}, '${r.name.replace(/'/g, "\\'")}')">導航</button>
       </div>
     </div>
@@ -528,6 +543,87 @@ function openNavigation(lat, lng, name) {
   } else {
     window.open(googleUrl, '_blank');
   }
+}
+
+// 定位用户位置并显示附近餐厅
+function locateUser() {
+  if (!navigator.geolocation) {
+    alert('您的浏览器不支持地理定位功能');
+    return;
+  }
+  
+  navigator.geolocation.getCurrentPosition(
+    (position) => {
+      const userLat = position.coords.latitude;
+      const userLng = position.coords.longitude;
+      
+      // 计算用户与所有餐厅的距离
+      const restaurantsWithDist = RESTAURANTS.map(r => {
+        const dist = calcDistance(userLat, userLng, r.lat, r.lng);
+        return { ...r, distance: dist };
+      });
+      
+      // 按距离排序
+      restaurantsWithDist.sort((a, b) => a.distance - b.distance);
+      
+      // 找到最近的餐厅
+      const nearest = restaurantsWithDist[0];
+      
+      // 移动地图到用户位置
+      map.flyTo([userLat, userLng], 15, { duration: 1 });
+      
+      // 添加用户位置标记
+      if (window.userMarker) {
+        map.removeLayer(window.userMarker);
+      }
+      window.userMarker = L.marker([userLat, userLng], {
+        icon: L.divIcon({
+          className: 'user-location-marker',
+          html: '<div style="background:#16A34A;width:16px;height:16px;border-radius:50%;border:3px solid white;box-shadow:0 2px 6px rgba(0,0,0,0.3);"></div>',
+          iconSize: [22, 22],
+          iconAnchor: [11, 11]
+        })
+      }).addTo(map);
+      window.userMarker.bindPopup('您的位置').openPopup();
+      
+      // 显示附近餐厅列表
+      renderList(restaurantsWithDist.slice(0, 20));
+      
+      // 提示用户
+      setTimeout(() => {
+        alert(`找到您附近最近的餐厅：${nearest.name}\n距离：${Math.round(nearest.distance)}米\n地址：${nearest.address}`);
+      }, 1000);
+    },
+    (error) => {
+      let msg = '无法获取您的位置';
+      switch(error.code) {
+        case error.PERMISSION_DENIED:
+          msg = '请允许使用定位权限';
+          break;
+        case error.POSITION_UNAVAILABLE:
+          msg = '位置信息不可用';
+          break;
+        case error.TIMEOUT:
+          msg = '定位超时';
+          break;
+      }
+      alert(msg);
+    },
+    { enableHighAccuracy: true, timeout: 10000, maximumAge: 60000 }
+  );
+}
+
+// 计算两点之间的距离（米）
+function calcDistance(lat1, lng1, lat2, lng2) {
+  const R = 6371000;
+  const rad = Math.PI / 180;
+  const dLat = (lat2 - lat1) * rad;
+  const dLng = (lng2 - lng1) * rad;
+  const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+            Math.cos(lat1 * rad) * Math.cos(lat2 * rad) *
+            Math.sin(dLng/2) * Math.sin(dLng/2);
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+  return R * c;
 }
 
 // Modal functions

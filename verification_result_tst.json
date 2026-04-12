@@ -1,0 +1,115 @@
+{
+  "verified": [
+    {
+      "id": 301,
+      "name": "蘭芳園 尖沙咀店",
+      "verified": true,
+      "api_name": "蘭芳園 尖沙咀店",
+      "distance_m": 301.3,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJVaLtEPIABDQRlOf0CV4BqD0",
+      "api_lat": 22.296396,
+      "api_lng": 114.1728114
+    },
+    {
+      "id": 302,
+      "name": "澳門茶餐廳",
+      "verified": true,
+      "api_name": "澳門茶餐廳",
+      "distance_m": 41.5,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJbVjVh-0ABDQRnu5vOgnlpiU",
+      "api_lat": 22.2976537,
+      "api_lng": 114.1716502
+    },
+    {
+      "id": 303,
+      "name": "池記雲吞麵",
+      "verified": true,
+      "api_name": "池記 - 尖沙咀",
+      "distance_m": 79.4,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJPS-8j-0ABDQR8iHScnofZos",
+      "api_lat": 22.2979475,
+      "api_lng": 114.1716016
+    },
+    {
+      "id": 304,
+      "name": "麥當勞 尖沙咀店",
+      "verified": true,
+      "api_name": "麥當勞",
+      "distance_m": 236.7,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJEzp_hj8BBDQRou5ig2KlQMY",
+      "api_lat": 22.2965222,
+      "api_lng": 114.1709494
+    },
+    {
+      "id": 305,
+      "name": "大家樂 尖沙咀店",
+      "verified": true,
+      "api_name": "大家樂",
+      "distance_m": 284.9,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJYRjME_IABDQR2iBGI7TeFkU",
+      "api_lat": 22.2965001,
+      "api_lng": 114.172805
+    },
+    {
+      "id": 306,
+      "name": "華嫂冰室 尖沙咀店",
+      "verified": true,
+      "api_name": "華嫂冰室 (尖沙咀)",
+      "distance_m": 138.7,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJP8UQJlcBBDQR5WiI93rue5M",
+      "api_lat": 22.299445,
+      "api_lng": 114.172919
+    },
+    {
+      "id": 307,
+      "name": "星座冰室",
+      "verified": true,
+      "api_name": "星座冰室",
+      "distance_m": 172.5,
+      "status": "CLOSED_PERMANENTLY",
+      "place_id": "ChIJLYwrMuwABDQR_Q1f5kLA3O0",
+      "api_lat": 22.3001747,
+      "api_lng": 114.175127
+    },
+    {
+      "id": 308,
+      "name": "金華冰廳 太子店",
+      "verified": true,
+      "api_name": "金華冰廳",
+      "distance_m": 328.0,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJx191T8gABDQRz11N1JVF6Is",
+      "api_lat": 22.3222738,
+      "api_lng": 114.1697189
+    },
+    {
+      "id": 309,
+      "name": "一點心 太子店",
+      "verified": true,
+      "api_name": "一點心",
+      "distance_m": 15.3,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJZTOZi8kABDQR6mCupQnajEI",
+      "api_lat": 22.3254818,
+      "api_lng": 114.1691477
+    },
+    {
+      "id": 310,
+      "name": "麥當勞 太子店",
+      "verified": true,
+      "api_name": "麥當勞 (嘉業)",
+      "distance_m": 253.3,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJtzaICC8BBDQRNDpNFZRFvu8",
+      "api_lat": 22.3222587,
+      "api_lng": 114.168438
+    }
+  ],
+  "failed": []
+}
