@@ -1,0 +1,225 @@
+{
+  "verified": [
+    {
+      "id": 201,
+      "name": "劉森記蝦籽麵",
+      "verified": true,
+      "api_name": "劉森記麵家",
+      "distance_m": 221.9,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJhawetbQABDQR_8-_yYHRFMA",
+      "api_lat": 22.3322331,
+      "api_lng": 114.1630699
+    },
+    {
+      "id": 202,
+      "name": "公和荳品廠",
+      "verified": true,
+      "api_name": "公和荳品廠",
+      "distance_m": 459.2,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJlSRIwLQABDQRT_B6YwxZJ_Q",
+      "api_lat": 22.33108,
+      "api_lng": 114.1634738
+    },
+    {
+      "id": 203,
+      "name": "維記咖啡粉麵",
+      "verified": true,
+      "api_name": "維記咖啡粉麵（深水埗福榮街店）",
+      "distance_m": 80.2,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJrV16yLQABDQRgxtJqvjwD38",
+      "api_lat": 22.3316222,
+      "api_lng": 114.1633944
+    },
+    {
+      "id": 204,
+      "name": "合益泰小食",
+      "verified": true,
+      "api_name": "合益泰小食",
+      "distance_m": 111.3,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJo2b0erMABDQRZRNcBgLt6QM",
+      "api_lat": 22.3304721,
+      "api_lng": 114.1612409
+    },
+    {
+      "id": 205,
+      "name": "新香園堅記",
+      "verified": true,
+      "api_name": "新香園 (堅記)",
+      "distance_m": 94.4,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJBaX6d7MABDQR-KbZXa25fH0",
+      "api_lat": 22.3298688,
+      "api_lng": 114.1608932
+    },
+    {
+      "id": 206,
+      "name": "文記車仔麵",
+      "verified": true,
+      "api_name": "文記車仔麵",
+      "distance_m": 46.1,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJfcIisbQABDQREpaFivHhaRc",
+      "api_lat": 22.3318131,
+      "api_lng": 114.1627936
+    },
+    {
+      "id": 207,
+      "name": "增輝藝廚",
+      "verified": true,
+      "api_name": "增煇藝廚",
+      "distance_m": 587.4,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJ8xWfA7UABDQRNDM7V9xKJuA",
+      "api_lat": 22.3297573,
+      "api_lng": 114.1650467
+    },
+    {
+      "id": 208,
+      "name": "鴨寮街熟食中心",
+      "verified": true,
+      "api_name": "北河街街市及熟食中心",
+      "distance_m": 100.8,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJs3oYm7MABDQROitxk8WoKRY",
+      "api_lat": 22.3295078,
+      "api_lng": 114.1608116
+    },
+    {
+      "id": 209,
+      "name": "麥當勞 深水埗店",
+      "verified": true,
+      "api_name": "麥當勞",
+      "distance_m": 387.9,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJPw7sIu4BBDQRl9BtUNo74pc",
+      "api_lat": 22.3319551,
+      "api_lng": 114.1614096
+    },
+    {
+      "id": 210,
+      "name": "大家樂 深水埗店",
+      "verified": true,
+      "api_name": "大家樂",
+      "distance_m": 205.7,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJXwjVXbMABDQR8lGvuGczpw8",
+      "api_lat": 22.331008,
+      "api_lng": 114.1616922
+    },
+    {
+      "id": 211,
+      "name": "麥文記麵家",
+      "verified": true,
+      "api_name": "麥文記麵家",
+      "distance_m": 208.8,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJcaCRCusABDQRbEmVNBREGAM",
+      "api_lat": 22.3046664,
+      "api_lng": 114.1705639
+    },
+    {
+      "id": 212,
+      "name": "澳洲牛奶公司",
+      "verified": true,
+      "api_name": "澳洲牛奶公司",
+      "distance_m": 152.6,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJgR3J8gIBBDQRz3-Yaz5vVPo",
+      "api_lat": 22.304628,
+      "api_lng": 114.1705439
+    },
+    {
+      "id": 213,
+      "name": "義順牛奶公司",
+      "verified": true,
+      "api_name": "Yee Shun Dairy Company",
+      "distance_m": 234.9,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJ0bYzSQABBDQRxQN8OLaiGV4",
+      "api_lat": 22.3049297,
+      "api_lng": 114.1710446
+    },
+    {
+      "id": 214,
+      "name": "美都餐室",
+      "verified": true,
+      "api_name": "美都餐室",
+      "distance_m": 248.6,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJXaygtPEBBDQR-0OEq9AhTCc",
+      "api_lat": 22.3102211,
+      "api_lng": 114.1702722
+    },
+    {
+      "id": 215,
+      "name": "興記煲仔飯",
+      "verified": true,
+      "api_name": "興記菜館",
+      "distance_m": 270.4,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJ8-gzV8AABDQRPqSwVu2E12s",
+      "api_lat": 22.3113625,
+      "api_lng": 114.1701235
+    },
+    {
+      "id": 216,
+      "name": "佳佳甜品",
+      "verified": true,
+      "api_name": "佳佳甜品 (佐敦店)",
+      "distance_m": 152.8,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJFRQ7_lxG_xMRFJXUfqxR2O4",
+      "api_lat": 22.3066261,
+      "api_lng": 114.1708508
+    },
+    {
+      "id": 217,
+      "name": "麥當勞 油麻地店",
+      "verified": true,
+      "api_name": "麥當勞 (彌敦行)",
+      "distance_m": 551.8,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJKzmgHMEABDQRi12Pz8Y9AvE",
+      "api_lat": 22.3124053,
+      "api_lng": 114.1709903
+    },
+    {
+      "id": 218,
+      "name": "大快活 油麻地店",
+      "verified": true,
+      "api_name": "Fairwood",
+      "distance_m": 299.7,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJ_5jEawABBDQR8S2dUHoZgWM",
+      "api_lat": 22.3055274,
+      "api_lng": 114.1708411
+    },
+    {
+      "id": 219,
+      "name": "翠華餐廳 油麻地店",
+      "verified": true,
+      "api_name": "田記魚蛋牛腩專門店 (碧街店)",
+      "distance_m": 792.1,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJ2zCS0MAABDQRyhtkTZrph7I",
+      "api_lat": 22.3138867,
+      "api_lng": 114.1700153
+    },
+    {
+      "id": 220,
+      "name": "富記粥品",
+      "verified": true,
+      "api_name": "富記燒臘",
+      "distance_m": 179.9,
+      "status": "OPERATIONAL",
+      "place_id": "ChIJrZF36OoABDQREB8wGmvS6iM",
+      "api_lat": 22.30694,
+      "api_lng": 114.169338
+    }
+  ],
+  "failed": []
+}

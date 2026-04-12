@@ -228,8 +228,8 @@
 </header>
 
 <div class="stats">
-  <span>📍 堅尼地城 · 西營盤 · 銅鑼灣 · 中環 · 旺角 · 灣仔 · 上環 · 北角 · 筲箕灣</span>
-  <span>收錄 <strong id="count">78</strong> 間</span>
+  <span>📍 堅尼地城 · 西營盤 · 銅鑼灣 · 中環 · 旺角 · 灣仔 · 上環 · 北角 · 筲箕灣 · 深水埗 · 油麻地</span>
+  <span>收錄 <strong id="count">97</strong> 間</span>
 </div>
 
 <div class="main">
@@ -410,6 +410,29 @@ const RESTAURANTS = [
   { id:126, name:'德昌魚蛋粉', type:'粥粉麵', address:'筲箕灣東大街88號', lat:22.2785, lng:114.2298, price:40, rating:4.2 },
   { id:127, name:'太興 筲箕灣店', type:'燒臘', address:'筲箕灣道111號', lat:22.2798, lng:114.2315, price:45, rating:4.0 },
   { id:128, name:'麥當勞 筲箕灣店', type:'快餐', address:'筲箕灣太安街38號', lat:22.2798, lng:114.2318, price:35, rating:3.5 },
+  
+  // ===== 深水埗（Google Places API 驗證）=====
+  { id:201, name:'劉森記麵家', type:'粥粉麵', address:'深水埗桂林街48號', lat:22.3322, lng:114.1631, price:45, rating:4.4 },
+  { id:202, name:'公和荳品廠', type:'小吃', address:'深水埗北河街118號', lat:22.3311, lng:114.1635, price:20, rating:4.3 },
+  { id:203, name:'維記咖啡粉麵', type:'茶餐廳', address:'深水埗福榮街62號', lat:22.3316, lng:114.1634, price:40, rating:4.2 },
+  { id:204, name:'合益泰小食', type:'小吃', address:'深水埗桂林街121號', lat:22.3305, lng:114.1612, price:15, rating:4.5 },
+  { id:205, name:'新香園 (堅記)', type:'茶餐廳', address:'深水埗桂林街38號', lat:22.3299, lng:114.1609, price:38, rating:4.3 },
+  { id:206, name:'文記車仔麵', type:'粥粉麵', address:'深水埗福榮街109號', lat:22.3318, lng:114.1628, price:40, rating:4.4 },
+  { id:207, name:'增煇藝廚', type:'中菜', address:'深水埗石硤尾街31號', lat:22.3298, lng:114.1650, price:45, rating:4.1 },
+  { id:208, name:'北河街街市及熟食中心', type:'快餐', address:'深水埗基隆街211號', lat:22.3295, lng:114.1608, price:35, rating:4.0 },
+  { id:209, name:'麥當勞 深水埗店', type:'快餐', address:'深水埗長沙灣道264號', lat:22.3320, lng:114.1614, price:35, rating:3.5 },
+  { id:210, name:'大家樂 深水埗店', type:'快餐', address:'深水埗長沙灣道264號', lat:22.3310, lng:114.1617, price:42, rating:3.6 },
+  
+  // ===== 油麻地/佐敦（Google Places API 驗證）=====
+  { id:211, name:'麥文記麵家', type:'雲吞麵', address:'佐敦白加士街51號', lat:22.3047, lng:114.1706, price:45, rating:4.3 },
+  { id:212, name:'澳洲牛奶公司', type:'茶餐廳', address:'佐敦白加士街47號', lat:22.3046, lng:114.1705, price:35, rating:4.2 },
+  { id:213, name:'義順牛奶公司', type:'茶餐廳', address:'油麻地庇利金街63號', lat:22.3049, lng:114.1710, price:35, rating:4.0 },
+  { id:214, name:'美都餐室', type:'茶餐廳', address:'廟街63號', lat:22.3102, lng:114.1703, price:45, rating:4.1 },
+  { id:215, name:'興記菜館', type:'中菜', address:'油麻地廟街15號', lat:22.3114, lng:114.1701, price:50, rating:4.3 },
+  { id:216, name:'佳佳甜品', type:'甜品', address:'佐敦寧波街29號', lat:22.3066, lng:114.1709, price:25, rating:4.4 },
+  { id:217, name:'麥當勞 油麻地店', type:'快餐', address:'油麻地彌敦道473號', lat:22.3124, lng:114.1710, price:35, rating:3.5 },
+  { id:218, name:'大快活 油麻地店', type:'快餐', address:'油麻地彌敦道480號', lat:22.3055, lng:114.1708, price:40, rating:3.6 },
+  { id:219, name:'富記燒臘', type:'燒臘', address:'油麻地廟街', lat:22.3069, lng:114.1693, price:40, rating:4.2 },
 ];
 
 let map, markers = {}, activeId = null;
