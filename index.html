@@ -269,7 +269,7 @@
       <span id="toggleIcon">▼</span>
       <span id="toggleText">收起區域</span>
     </span>
-    <span style="white-space: nowrap;">收錄 <strong id="count">106</strong> 間</span>
+    <span style="white-space: nowrap;">收錄 <strong id="count">123</strong> 間</span>
     <button onclick="locateUser()" style="background:var(--green);color:white;border:none;padding:4px 10px;border-radius:12px;font-size:11px;cursor:pointer;white-space: nowrap;margin-left:auto;">📍 定位我</button>
   </div>
   <div class="district-tags-container" id="districtTagsContainer">
@@ -394,17 +394,23 @@
 const DISTRICTS = {
   '堅尼地城': { lat: 22.2825, lng: 114.1285, zoom: 15 },
   '西營盤': { lat: 22.2865, lng: 114.1405, zoom: 15 },
-  '銅鑼灣': { lat: 22.2800, lng: 114.1850, zoom: 15 },
+  '上環': { lat: 22.2860, lng: 114.1500, zoom: 15 },
   '中環': { lat: 22.2835, lng: 114.1550, zoom: 15 },
   '灣仔': { lat: 22.2775, lng: 114.1700, zoom: 15 },
-  '上環': { lat: 22.2860, lng: 114.1500, zoom: 15 },
+  '銅鑼灣': { lat: 22.2800, lng: 114.1850, zoom: 15 },
+  '天后': { lat: 22.2860, lng: 114.1925, zoom: 15 },
+  '炮台山': { lat: 22.2890, lng: 114.1945, zoom: 15 },
   '北角': { lat: 22.2915, lng: 114.2000, zoom: 15 },
+  '鰂魚涌': { lat: 22.2845, lng: 114.2120, zoom: 15 },
+  '太古城': { lat: 22.2863, lng: 114.2185, zoom: 15 },
   '筲箕灣': { lat: 22.2785, lng: 114.2300, zoom: 15 },
+  '柴灣': { lat: 22.2668, lng: 114.2385, zoom: 14 },
   '旺角': { lat: 22.3195, lng: 114.1695, zoom: 15 },
+  '太子': { lat: 22.3240, lng: 114.1680, zoom: 15 },
   '深水埗': { lat: 22.3310, lng: 114.1620, zoom: 15 },
   '油麻地': { lat: 22.3085, lng: 114.1705, zoom: 15 },
+  '佐敦': { lat: 22.3050, lng: 114.1705, zoom: 15 },
   '尖沙咀': { lat: 22.2970, lng: 114.1720, zoom: 15 },
-  '太子': { lat: 22.3240, lng: 114.1680, zoom: 15 }
 };
 
 let currentDistrict = null;
@@ -545,6 +551,33 @@ const RESTAURANTS = [
   { id:307, name:'金華冰廳', type:'茶餐廳', address:'太子弼街45-47號', lat:22.3223, lng:114.1697, price:42, rating:3.9 },
   { id:308, name:'一點心', type:'點心', address:'太子通菜街209A地下', lat:22.3255, lng:114.1691, price:48, rating:4.3 },
   { id:309, name:'麥當勞 太子店', type:'快餐', address:'太子彌敦道750號始創中心', lat:22.3223, lng:114.1684, price:35, rating:3.5 },
+
+  // ===== 天后（Google Places API 第二輪驗證）=====
+  { id:401, name:'生記粥店', type:'粥品', address:'天后電氣道183號', lat:22.285553, lng:114.1916934, price:38, rating:4.2 },
+  { id:402, name:'德島茶餐廳', type:'茶餐廳', address:'天后電氣道148號', lat:22.2859228, lng:114.1925823, price:40, rating:4.1 },
+  { id:403, name:'Mirror Burger 天后店', type:'漢堡', address:'天后渣甸坊8號', lat:22.2871054, lng:114.1922613, price:50, rating:4.4 },
+  { id:404, name:'華姐清湯腩 天后', type:'粥粉麵', address:'天后電氣道106號', lat:22.2836, lng:114.1924, price:45, rating:4.2 },
+
+  // ===== 炮台山（Google Places API 第二輪驗證）=====
+  { id:411, name:'半島冰室', type:'茶餐廳', address:'炮台山英皇道270號', lat:22.2882304, lng:114.1918253, price:40, rating:4.2 },
+  { id:412, name:'翠苑甜品專家', type:'甜品', address:'炮台山北角道2號', lat:22.2910119, lng:114.1964891, price:35, rating:4.3 },
+
+  // ===== 鰂魚涌（Google Places API 第二輪驗證）=====
+  { id:421, name:'太興 鰂魚涌華蘭路店', type:'燒臘', address:'鰂魚涌華蘭路28號', lat:22.2851653, lng:114.2125055, price:45, rating:4.0 },
+  { id:422, name:'鰂魚涌街市熟食中心', type:'快餐', address:'鰂魚涌海裕街2-12號', lat:22.2836838, lng:114.2118756, price:35, rating:4.0 },
+  { id:423, name:'大家樂 鰂魚涌', type:'快餐', address:'鰂魚涌英皇道1078號', lat:22.284015, lng:114.2122412, price:42, rating:3.6 },
+
+  // ===== 太古城（Google Places API 第二輪驗證）=====
+  { id:431, name:'添好運 太古城', type:'點心', address:'太古城道18號太古城中心', lat:22.286487, lng:114.2152267, price:50, rating:4.5 },
+  { id:432, name:'敏華冰廳 太古城', type:'茶餐廳', address:'太古城道18號太古城中心', lat:22.2862612, lng:114.2193738, price:42, rating:3.9 },
+  { id:433, name:'大家樂 太古城', type:'快餐', address:'太古城道18號太古城中心G層', lat:22.2862504, lng:114.2180545, price:42, rating:3.6 },
+  { id:434, name:'大快活 康怡廣場', type:'快餐', address:'太古康怡廣場', lat:22.2865, lng:114.2170, price:40, rating:3.7 },
+
+  // ===== 柴灣（Google Places API 第二輪驗證）=====
+  { id:441, name:'樂翠茶餐廳', type:'茶餐廳', address:'柴灣道2號地下', lat:22.2682563, lng:114.2340809, price:38, rating:3.9 },
+  { id:442, name:'漁灣街市及熟食中心', type:'快餐', address:'柴灣道338號', lat:22.2655086, lng:114.2406826, price:35, rating:3.9 },
+  { id:443, name:'大家樂 小西灣廣場', type:'快餐', address:'小西灣道23號小西灣廣場', lat:22.2625513, lng:114.2488835, price:42, rating:3.6 },
+  { id:444, name:'彩逸漁港', type:'海鮮', address:'柴灣道16號', lat:22.2622637, lng:114.235657, price:50, rating:4.0 },
 ];
 
 let map, markers = {}, activeId = null;
@@ -638,8 +671,14 @@ function selectDistrict(district) {
       if (district === '筲箕灣' && r.id >= 122 && r.id <= 128) return true;
       if (district === '深水埗' && r.id >= 201 && r.id <= 210) return true;
       if (district === '油麻地' && r.id >= 211 && r.id <= 219) return true;
+      if (district === '佐敦' && r.id >= 211 && r.id <= 219) return true;
       if (district === '尖沙咀' && r.id >= 301 && r.id <= 306) return true;
       if (district === '太子' && r.id >= 307 && r.id <= 309) return true;
+      if (district === '天后' && r.id >= 401 && r.id <= 409) return true;
+      if (district === '炮台山' && r.id >= 411 && r.id <= 419) return true;
+      if (district === '鰂魚涌' && r.id >= 421 && r.id <= 429) return true;
+      if (district === '太古城' && r.id >= 431 && r.id <= 439) return true;
+      if (district === '柴灣' && r.id >= 441 && r.id <= 449) return true;
       if (district === '旺角' && r.id >= 84 && r.id <= 93) return true;
       return false;
     });
