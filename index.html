@@ -269,7 +269,7 @@
       <span id="toggleIcon">▼</span>
       <span id="toggleText">收起區域</span>
     </span>
-    <span style="white-space: nowrap;">收錄 <strong id="count">123</strong> 間</span>
+    <span style="white-space: nowrap;">收錄 <strong id="count">154</strong> 間</span>
     <button onclick="locateUser()" style="background:var(--green);color:white;border:none;padding:4px 10px;border-radius:12px;font-size:11px;cursor:pointer;white-space: nowrap;margin-left:auto;">📍 定位我</button>
   </div>
   <div class="district-tags-container" id="districtTagsContainer">
@@ -392,6 +392,7 @@
 <script>
 // 行政区数据（中心坐标和缩放级别）
 const DISTRICTS = {
+  // 港岛
   '堅尼地城': { lat: 22.2825, lng: 114.1285, zoom: 15 },
   '西營盤': { lat: 22.2865, lng: 114.1405, zoom: 15 },
   '上環': { lat: 22.2860, lng: 114.1500, zoom: 15 },
@@ -405,12 +406,22 @@ const DISTRICTS = {
   '太古城': { lat: 22.2863, lng: 114.2185, zoom: 15 },
   '筲箕灣': { lat: 22.2785, lng: 114.2300, zoom: 15 },
   '柴灣': { lat: 22.2668, lng: 114.2385, zoom: 14 },
+  '跑馬地': { lat: 22.2700, lng: 114.1845, zoom: 15 },
+  '香港仔': { lat: 22.2490, lng: 114.1560, zoom: 15 },
+  '赤柱': { lat: 22.2185, lng: 114.2120, zoom: 15 },
+  '黃竹坑': { lat: 22.2472, lng: 114.1672, zoom: 15 },
+  // 九龙
   '旺角': { lat: 22.3195, lng: 114.1695, zoom: 15 },
   '太子': { lat: 22.3240, lng: 114.1680, zoom: 15 },
   '深水埗': { lat: 22.3310, lng: 114.1620, zoom: 15 },
   '油麻地': { lat: 22.3085, lng: 114.1705, zoom: 15 },
-  '佐敦': { lat: 22.3050, lng: 114.1705, zoom: 15 },
+  '佐敦': { lat: 22.3055, lng: 114.1705, zoom: 15 },
   '尖沙咀': { lat: 22.2970, lng: 114.1720, zoom: 15 },
+  '紅磡': { lat: 22.3060, lng: 114.1875, zoom: 15 },
+  '土瓜灣': { lat: 22.3230, lng: 114.1890, zoom: 15 },
+  '九龍城': { lat: 22.3305, lng: 114.1940, zoom: 15 },
+  '黃大仙': { lat: 22.3415, lng: 114.1945, zoom: 15 },
+  '觀塘': { lat: 22.3110, lng: 114.2250, zoom: 15 },
 };
 
 let currentDistrict = null;
@@ -578,6 +589,57 @@ const RESTAURANTS = [
   { id:442, name:'漁灣街市及熟食中心', type:'快餐', address:'柴灣道338號', lat:22.2655086, lng:114.2406826, price:35, rating:3.9 },
   { id:443, name:'大家樂 小西灣廣場', type:'快餐', address:'小西灣道23號小西灣廣場', lat:22.2625513, lng:114.2488835, price:42, rating:3.6 },
   { id:444, name:'彩逸漁港', type:'海鮮', address:'柴灣道16號', lat:22.2622637, lng:114.235657, price:50, rating:4.0 },
+
+  // ===== 跑馬地（Google Places API 第三輪驗證）=====
+  { id:501, name:'牛奶冰室 (跑馬地)', type:'茶餐廳', address:'跑馬地黃泥涌道', lat:22.2695953, lng:114.183582, price:38, rating:3.3 },
+  { id:502, name:'祥興咖啡室', type:'茶餐廳', address:'跑馬地崇德街', lat:22.2693546, lng:114.1849939, price:42, rating:3.9 },
+
+  // ===== 香港仔（Google Places API 第三輪驗證）=====
+  { id:511, name:'香港仔街市熟食中心', type:'快餐', address:'香港仔舊大街', lat:22.2492572, lng:114.1546082, price:35, rating:3.4 },
+  { id:512, name:'大家樂 香港仔', type:'快餐', address:'香港仔廣場', lat:22.2477988, lng:114.1545894, price:42, rating:3.4 },
+  { id:513, name:'珍寶王國', type:'海鮮', address:'香港仔深灣道', lat:22.2434725, lng:114.1617244, price:80, rating:3.5 },
+  { id:514, name:'潮發記', type:'粵菜', address:'香港仔大道', lat:22.2482958, lng:114.1551798, price:50, rating:3.5 },
+
+  // ===== 赤柱（Google Places API 第三輪驗證）=====
+  { id:521, name:'赤柱中泰美食餐廳', type:'泰式', address:'赤柱市場道', lat:22.2182211, lng:114.2127046, price:60, rating:3.9 },
+  { id:522, name:'Beesy Bay', type:'西式', address:'赤柱市場道', lat:22.2186428, lng:114.2115179, price:80, rating:3.7 },
+  { id:523, name:'Smugglers Inn', type:'西式', address:'赤柱市場道', lat:22.2187394, lng:114.2111963, price:70, rating:4.3 },
+  { id:524, name:'赤柱廣場美食廣場', type:'快餐', address:'赤柱廣場', lat:22.2193417, lng:114.2099012, price:45, rating:4.1 },
+
+  // ===== 黃竹坑（Google Places API 第三輪驗證）=====
+  { id:541, name:'皇后飯店 (黃竹坑)', type:'粵菜', address:'黃竹坑道', lat:22.247355, lng:114.1671934, price:50, rating:3.6 },
+  { id:542, name:'遇見小麵 (黃竹坑)', type:'粥粉麵', address:'黃竹坑道', lat:22.2472821, lng:114.1670318, price:40, rating:3.5 },
+
+  // ===== 佐敦（Google Places API 第三輪驗證）=====
+  { id:601, name:'澳洲牛奶公司', type:'茶餐廳', address:'佐敦白加士街47號', lat:22.304628, lng:114.1705439, price:40, rating:4.0 },
+  { id:602, name:'翠華閣 (廣東道)', type:'茶餐廳', address:'佐敦廣東道', lat:22.3068001, lng:114.1683162, price:55, rating:4.5 },
+  { id:603, name:'麥奀雲吞麵世家 (佐敦)', type:'雲吞麵', address:'佐敦佐敦道', lat:22.304516, lng:114.1705646, price:48, rating:3.8 },
+  { id:604, name:'新興粉麵', type:'粥粉麵', address:'佐敦廟街', lat:22.3059107, lng:114.1703822, price:35, rating:3.9 },
+  { id:605, name:'大家樂 (佐敦)', type:'快餐', address:'佐敦白加士街', lat:22.3055281, lng:114.1703927, price:42, rating:3.6 },
+  { id:606, name:'糖水檔1987', type:'甜品', address:'佐敦長樂街', lat:22.3070669, lng:114.1662027, price:28, rating:4.0 },
+
+  // ===== 紅磡（Google Places API 第三輪驗證）=====
+  { id:611, name:'一豆花 (紅磡)', type:'甜品', address:'紅磡漆咸道北', lat:22.3052393, lng:114.1881666, price:25, rating:4.2 },
+  { id:612, name:'紅磡街市熟食中心', type:'快餐', address:'紅磡馬頭圍道', lat:22.307275, lng:114.187347, price:35, rating:3.6 },
+  { id:613, name:'生記粥店 (紅磡)', type:'粥品', address:'紅磡溫思勞街', lat:22.3070214, lng:114.1871028, price:38, rating:4.1 },
+
+  // ===== 土瓜灣（Google Places API 第三輪驗證）=====
+  { id:621, name:'慶發飯店 (土瓜灣)', type:'燒臘', address:'土瓜灣道', lat:22.323059, lng:114.1889101, price:42, rating:3.8 },
+
+  // ===== 九龍城（Google Places API 第三輪驗證）=====
+  { id:631, name:'金泰皇泰國菜館 (九龍城)', type:'泰式', address:'九龍城衙前圍道', lat:22.3296348, lng:114.1908354, price:55, rating:4.1 },
+  { id:632, name:'皇室甜品 (九龍城)', type:'甜品', address:'九龍城南角道', lat:22.3286677, lng:114.1908408, price:35, rating:3.8 },
+  { id:633, name:'百芳池上便當 (Mikiki)', type:'快餐', address:'九龍城道Mikiki商場', lat:22.3335249, lng:114.1969753, price:45, rating:3.8 },
+
+  // ===== 黃大仙（Google Places API 第三輪驗證）=====
+  { id:641, name:'大家樂 (黃大仙中心)', type:'快餐', address:'黃大仙中心', lat:22.3414698, lng:114.194421, price:42, rating:3.4 },
+  { id:642, name:'意樂餐廳 (黃大仙)', type:'茶餐廳', address:'黃大仙斧山道', lat:22.3414517, lng:114.1943978, price:42, rating:3.6 },
+  { id:643, name:'大成街街市熟食中心', type:'快餐', address:'黃大仙大成街', lat:22.3372429, lng:114.1948127, price:35, rating:3.7 },
+
+  // ===== 觀塘（Google Places API 第三輪驗證）=====
+  { id:651, name:'大家樂 (觀塘成業街)', type:'快餐', address:'觀塘成業街', lat:22.3103084, lng:114.2258453, price:42, rating:3.2 },
+  { id:652, name:'奇華餅家 (APM)', type:'西餅', address:'觀塘APM商場', lat:22.3124499, lng:114.2252191, price:35, rating:3.7 },
+  { id:653, name:'駿業熟食市場', type:'快餐', address:'觀塘駿業街', lat:22.3117751, lng:114.2229074, price:35, rating:3.5 },
 ];
 
 let map, markers = {}, activeId = null;
@@ -661,25 +723,36 @@ function selectDistrict(district) {
     
     // 筛选该区域的餐厅（根据餐厅ID范围判断区域）
     const districtRestaurants = RESTAURANTS.filter(r => {
+      // 港岛
       if (district === '堅尼地城' && r.id >= 1 && r.id <= 10) return true;
       if (district === '西營盤' && r.id >= 51 && r.id <= 60) return true;
       if (district === '銅鑼灣' && r.id >= 61 && r.id <= 69) return true;
       if (district === '中環' && r.id >= 70 && r.id <= 83) return true;
+      if (district === '旺角' && r.id >= 84 && r.id <= 93) return true;
       if (district === '灣仔' && r.id >= 101 && r.id <= 108) return true;
       if (district === '上環' && r.id >= 109 && r.id <= 116) return true;
       if (district === '北角' && r.id >= 117 && r.id <= 121) return true;
       if (district === '筲箕灣' && r.id >= 122 && r.id <= 128) return true;
-      if (district === '深水埗' && r.id >= 201 && r.id <= 210) return true;
-      if (district === '油麻地' && r.id >= 211 && r.id <= 219) return true;
-      if (district === '佐敦' && r.id >= 211 && r.id <= 219) return true;
-      if (district === '尖沙咀' && r.id >= 301 && r.id <= 306) return true;
-      if (district === '太子' && r.id >= 307 && r.id <= 309) return true;
       if (district === '天后' && r.id >= 401 && r.id <= 409) return true;
       if (district === '炮台山' && r.id >= 411 && r.id <= 419) return true;
       if (district === '鰂魚涌' && r.id >= 421 && r.id <= 429) return true;
       if (district === '太古城' && r.id >= 431 && r.id <= 439) return true;
       if (district === '柴灣' && r.id >= 441 && r.id <= 449) return true;
-      if (district === '旺角' && r.id >= 84 && r.id <= 93) return true;
+      if (district === '跑馬地' && r.id >= 501 && r.id <= 509) return true;
+      if (district === '香港仔' && r.id >= 511 && r.id <= 519) return true;
+      if (district === '赤柱' && r.id >= 521 && r.id <= 529) return true;
+      if (district === '黃竹坑' && r.id >= 541 && r.id <= 549) return true;
+      // 九龙
+      if (district === '深水埗' && r.id >= 201 && r.id <= 210) return true;
+      if (district === '油麻地' && r.id >= 211 && r.id <= 219) return true;
+      if (district === '尖沙咀' && r.id >= 301 && r.id <= 306) return true;
+      if (district === '太子' && r.id >= 307 && r.id <= 309) return true;
+      if (district === '佐敦' && r.id >= 601 && r.id <= 609) return true;
+      if (district === '紅磡' && r.id >= 611 && r.id <= 619) return true;
+      if (district === '土瓜灣' && r.id >= 621 && r.id <= 629) return true;
+      if (district === '九龍城' && r.id >= 631 && r.id <= 639) return true;
+      if (district === '黃大仙' && r.id >= 641 && r.id <= 649) return true;
+      if (district === '觀塘' && r.id >= 651 && r.id <= 659) return true;
       return false;
     });
     
